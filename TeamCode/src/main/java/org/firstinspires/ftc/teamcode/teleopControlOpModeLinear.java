@@ -1,25 +1,25 @@
-import com.qualcomm.robotcore.eventloop.opmode.Disabled;
+package org.firstinspires.ftc.teamcode;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.hardware.CRServo;
 import com.qualcomm.robotcore.util.ElapsedTime;
-import com.qualcomm.robotcore.util.Range;
 
 
 @TeleOp(name="TeleOp Linear OpMode", group="Linear OpMode")
 public class teleopControlOpModeLinear extends LinearOpMode {
 
+
     // ElapsedTime tracks how long the OpMode has been running.
     private ElapsedTime runtime = new ElapsedTime();
 
-    private DcMotor leftFrontDrive  = null;
-    private DcMotor leftBackDrive   = null;
-    private DcMotor rightFrontDrive = null;
-    private DcMotor rightBackDrive  = null;
+//    private DcMotor leftFrontDrive  = null;
+//    private DcMotor leftBackDrive   = null;
+//    private DcMotor rightFrontDrive = null;
+//    private DcMotor rightBackDrive  = null;
 
-    private DcMotor intake    = null;
+//    private DcMotor intake    = null;
     private DcMotor catapult1 = null;
     private DcMotor catapult2 = null;
 
@@ -90,22 +90,22 @@ public class teleopControlOpModeLinear extends LinearOpMode {
         telemetry.update();
 
         // hardwareMap links a Java variable to a physical port. Names MUST match the Robot Configuration exactly.
-        leftFrontDrive  = hardwareMap.get(DcMotor.class, "left_front_drive");
-        leftBackDrive   = hardwareMap.get(DcMotor.class, "left_back_drive");
-        rightFrontDrive = hardwareMap.get(DcMotor.class, "right_front_drive");
-        rightBackDrive  = hardwareMap.get(DcMotor.class, "right_back_drive");
-        intake    = hardwareMap.get(DcMotor.class, "intake");
+//        leftFrontDrive  = hardwareMap.get(DcMotor.class, "left_front_drive");
+//        leftBackDrive   = hardwareMap.get(DcMotor.class, "left_back_drive");
+//        rightFrontDrive = hardwareMap.get(DcMotor.class, "right_front_drive");
+//        rightBackDrive  = hardwareMap.get(DcMotor.class, "right_back_drive");
+//        intake    = hardwareMap.get(DcMotor.class, "intake");
         catapult1 = hardwareMap.get(DcMotor.class, "catapult1");
         catapult2 = hardwareMap.get(DcMotor.class, "catapult2");
 
         // Reverse right-side motors to account for mirrored drivetrain mounting.
         // If driving behaves backward, verify motor wiring and these direction settings.
-        leftFrontDrive.setDirection(DcMotor.Direction.FORWARD);
-        leftBackDrive.setDirection(DcMotor.Direction.FORWARD);
-        rightFrontDrive.setDirection(DcMotor.Direction.REVERSE);
-        rightBackDrive.setDirection(DcMotor.Direction.REVERSE);
+//        leftFrontDrive.setDirection(DcMotor.Direction.FORWARD);
+//        leftBackDrive.setDirection(DcMotor.Direction.FORWARD);
+//        rightFrontDrive.setDirection(DcMotor.Direction.REVERSE);
+//        rightBackDrive.setDirection(DcMotor.Direction.REVERSE);
 
-        intake.setDirection(DcMotor.Direction.FORWARD);    // Forward should INTAKE.
+//        intake.setDirection(DcMotor.Direction.FORWARD);    // Forward should INTAKE.
         catapult1.setDirection(DcMotor.Direction.FORWARD); // Forward should pivot DOWN.
         catapult2.setDirection(DcMotor.Direction.REVERSE); // Reverse should pivot DOWN.
 
@@ -286,11 +286,11 @@ public class teleopControlOpModeLinear extends LinearOpMode {
 // WRITE EFFECTORS
 // ============================================================
             // All setPower() calls for drive and intake happen here. Catapult and servo outputs are written in their own sections above.
-            leftFrontDrive.setPower(leftFrontPower);
-            rightFrontDrive.setPower(rightFrontPower);
-            leftBackDrive.setPower(leftBackPower);
-            rightBackDrive.setPower(rightBackPower);
-            intake.setPower(intakePower);
+//            leftFrontDrive.setPower(leftFrontPower);
+//            rightFrontDrive.setPower(rightFrontPower);
+//            leftBackDrive.setPower(leftBackPower);
+//            rightBackDrive.setPower(rightBackPower);
+//            intake.setPower(intakePower);
 
 // ============================================================
 // TELEMETRY
@@ -302,7 +302,7 @@ public class teleopControlOpModeLinear extends LinearOpMode {
             telemetry.addData("Status", "Run Time: " + runtime.toString());
             telemetry.addData("Front left/Right", "%4.2f, %4.2f", leftFrontPower, rightFrontPower);
             telemetry.addData("Back  left/Right", "%4.2f, %4.2f", leftBackPower, rightBackPower);
-            telemetry.addData("Intake", "%4.2f", intake.getPower());
+//            telemetry.addData("Intake", "%4.2f", intake.getPower());
             telemetry.addData("Catapult MODE", "%s", catapult_mode_str);
             telemetry.addData("Shot power", "%4.2f", catapultActivePower);
             if (!USE_CR_SERVOS) {
